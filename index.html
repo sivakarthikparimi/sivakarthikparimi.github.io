@@ -47,6 +47,9 @@
       document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
     })();
   </script>
+  <link rel="preload" as="image" type="image/webp"
+    imagesrcset="/assets/img/portrait-560.webp 560w, /assets/img/portrait-800.webp 800w, /assets/img/portrait-1120.webp 1120w"
+    imagesizes="(max-width: 700px) 72vw, 380px" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
 
   <!-- Structured data: Person (drives Google knowledge panel) -->
