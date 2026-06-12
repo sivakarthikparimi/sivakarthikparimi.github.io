@@ -2,6 +2,23 @@
 (function () {
   "use strict";
 
+  // --- Theme toggle ---
+  var themeBtn = document.getElementById("themeToggle");
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function applyThemeColor() {
+    if (themeMeta) themeMeta.setAttribute("content",
+      document.documentElement.dataset.theme === "light" ? "#f7f4ec" : "#0a0c10");
+  }
+  applyThemeColor();
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      applyThemeColor();
+    });
+  }
+
   // --- Year ---
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

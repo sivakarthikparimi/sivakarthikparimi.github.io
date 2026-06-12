@@ -17,14 +17,39 @@
   --gold-soft: #b89557;
   --gold-dim:  rgba(212, 175, 106, .14);
   --maxw:      1120px;
+  --shadow-photo: 0 30px 80px -30px rgba(0,0,0,.8);
+  --shadow-book:  0 24px 60px -24px rgba(0,0,0,.8);
+  --press-name: #9aa0ab;
   --serif:     'Fraunces', Georgia, serif;
   --sans:      'Inter', system-ui, -apple-system, sans-serif;
   --mono:      'Spline Sans Mono', ui-monospace, monospace;
 }
 
+html[data-theme="light"] {
+  --bg:        #f7f4ec;
+  --bg-soft:   #f1ecdf;
+  --surface:   #fdfbf6;
+  --line:      #d9d1bd;
+  --line-soft: #e6e0d0;
+  --text:      #181a1f;
+  --body:      #3d424b;
+  --muted:     #6b7280;
+  --muted-2:   #5f6671;
+  --gold:      #9a7434;
+  --gold-soft: #84642e;
+  --gold-dim:  rgba(154, 116, 52, .22);
+  --shadow-photo: 0 24px 60px -28px rgba(60, 45, 15, .30);
+  --shadow-book:  0 18px 44px -20px rgba(60, 45, 15, .28);
+  --press-name: #565d68;
+}
+html[data-theme="light"] .btn--solid { background: #b8924a; color: #14100a; }
+html[data-theme="light"] .hero__caption span,
+html[data-theme="light"] .kicker { color: #8a6a2e; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 92px; }
 body {
+  transition: background .35s ease, color .35s ease;
   font-family: var(--sans);
   font-weight: 400;
   background: var(--bg);
@@ -87,6 +112,21 @@ img { max-width: 100%; height: auto; display: block; }
 .nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
 .nav__toggle[aria-expanded="true"] span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
 
+/* ---------- THEME TOGGLE ---------- */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 999px;
+  background: none; border: 1px solid var(--line); color: var(--muted-2);
+  cursor: pointer; transition: color .2s, border-color .2s, transform .3s;
+  margin-left: 26px; flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--gold); border-color: var(--gold); transform: rotate(15deg); }
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .icon-sun { display: block; }
+.theme-toggle .icon-moon { display: none; }
+html[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+html[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
 /* ---------- BUTTONS ---------- */
 .btn {
   display: inline-flex; align-items: center;
@@ -142,7 +182,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero__photo img {
   width: 100%; max-width: 380px;
   border: 1px solid var(--line);
-  box-shadow: 0 30px 80px -30px rgba(0,0,0,.8);
+  box-shadow: var(--shadow-photo);
 }
 .hero__photo::before {
   content: ""; position: absolute; top: 18px; left: -18px; right: 18px; bottom: -18px;
@@ -163,7 +203,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-top: 1px solid var(--line-soft);
 }
 .hero__press span, .hero__press a { color: var(--muted-2); font-size: .9rem; letter-spacing: .04em; }
-.hero__press span:not(.hero__press-label), .hero__press a { font-family: var(--serif); font-weight: 520; color: #9aa0ab; }
+.hero__press span:not(.hero__press-label), .hero__press a { font-family: var(--serif); font-weight: 520; color: var(--press-name); }
 .hero__press a { transition: color .2s; border-bottom: 1px solid transparent; }
 .hero__press a:hover { color: var(--gold); border-bottom-color: var(--gold-dim); }
 .hero__press-label {
@@ -279,7 +319,7 @@ img { max-width: 100%; height: auto; display: block; }
 .book__cover { position: relative; display: block; }
 .book__cover img {
   width: 100%; border: 1px solid var(--line);
-  box-shadow: 0 24px 60px -24px rgba(0,0,0,.8);
+  box-shadow: var(--shadow-book);
   transition: transform .3s;
 }
 .book__cover:hover img { transform: translateY(-4px); }
@@ -386,6 +426,7 @@ a.press__row:hover .press__arrow { opacity: 1; transform: translate(2px, -2px); 
   .nav__links.is-open { transform: translateY(0); }
   .nav__links a { padding: 15px 28px; }
   .nav__toggle { display: flex; }
+  .theme-toggle { margin-left: auto; margin-right: 14px; }
   .hero { padding-top: 130px; }
   .hero__stats { grid-template-columns: 1fr 1fr; gap: 26px; }
   .hero__photo img { max-width: 100%; }
