@@ -31,24 +31,24 @@
     });
   }
 
-  // --- Scroll reveal ---
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+  // --- Scroll reveal (position-based; reliable in every embedding context) ---
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  function checkReveals() {
+    if (!revealEls.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    revealEls = revealEls.filter(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) {
+        el.classList.add("is-visible");
+        return false;
+      }
+      return true;
+    });
   }
+  window.addEventListener("scroll", checkReveals, { passive: true });
+  window.addEventListener("resize", checkReveals, { passive: true });
+  checkReveals();
+  setTimeout(checkReveals, 120);
 
   // --- Google Scholar placeholder guard ---
   // Replace SCHOLAR_URL below once the profile link is known.
