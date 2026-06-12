@@ -272,6 +272,30 @@ img { max-width: 100%; height: auto; display: block; }
 .pubs__t { color: var(--text); font-size: .98rem; font-weight: 450; line-height: 1.55; }
 .pubs__m { font-family: var(--mono); font-size: .78rem; color: var(--gold-soft); letter-spacing: .04em; white-space: nowrap; }
 
+/* ---------- BOOK ---------- */
+.book { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: center; }
+.book__cover { position: relative; display: block; }
+.book__cover img {
+  width: 100%; border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,.8);
+  transition: transform .3s;
+}
+.book__cover:hover img { transform: translateY(-4px); }
+.book__cover::before {
+  content: ""; position: absolute; top: 14px; left: -14px; right: 14px; bottom: -14px;
+  border: 1px solid rgba(212, 175, 106, .25); pointer-events: none;
+}
+.book__body h3 {
+  font-family: var(--serif); font-weight: 520; font-size: 1.6rem; line-height: 1.25;
+  color: var(--text); margin-bottom: 6px; letter-spacing: -.01em;
+}
+.book__sub {
+  font-family: var(--serif); font-size: 1.05rem; color: var(--muted-2);
+  font-style: italic; margin-bottom: 18px;
+}
+.book__body > p:not(.book__sub):not(.feature__role) { max-width: 54em; }
+.book__actions { margin-top: 26px; }
+
 /* ---------- SPEAKING ---------- */
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
 .rlist { list-style: none; }
@@ -324,6 +348,8 @@ img { max-width: 100%; height: auto; display: block; }
   .feature__facts { flex-direction: row; gap: 40px; padding-left: 0; border-left: 0; padding-top: 26px; border-top: 1px solid var(--line-soft); }
   .expertise { grid-template-columns: 1fr 1fr; }
   .patents { grid-template-columns: 1fr; gap: 48px; }
+  .book { grid-template-columns: 1fr; gap: 40px; }
+  .book__cover { max-width: 240px; }
   .honors { grid-template-columns: 1fr; gap: 36px; }
   .cols { grid-template-columns: 1fr; gap: 40px; }
 }
