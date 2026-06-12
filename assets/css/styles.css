@@ -316,6 +316,13 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text); margin-bottom: 12px;
 }
 .honor p { font-size: .92rem; color: var(--muted-2); }
+.honor__link {
+  display: inline-block; margin-top: 14px;
+  font-family: var(--mono); font-size: .78rem; letter-spacing: .04em;
+  color: var(--gold-soft); transition: color .2s;
+}
+.honor__link:hover { color: var(--gold); }
+.honor__link:hover .press__arrow { opacity: 1; transform: translate(2px, -2px); }
 
 /* ---------- PRESS ---------- */
 .press { display: grid; }
