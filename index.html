@@ -11,7 +11,7 @@
   <meta name="keywords" content="Siva Karthik Parimi, AI architect, predictive AI, machine learning architecture, PayPal engineer, fintech AI, LSTM, proactive intelligence, enterprise AI, software engineer Austin" />
   <link rel="canonical" href="https://sivakarthikparimi.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="theme-color" content="#0a0c10" />
+  <meta name="theme-color" content="#f7f4ec" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
@@ -44,9 +44,7 @@
 
   <script>
     (function () {
-      var t = localStorage.getItem("theme");
-      if (!t) t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-      document.documentElement.dataset.theme = t;
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
     })();
   </script>
   <link rel="stylesheet" href="/assets/css/styles.css" />
