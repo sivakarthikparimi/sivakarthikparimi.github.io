@@ -109,13 +109,10 @@ strong { color: var(--text); font-weight: 700; }
 .stat__label { color: var(--muted-2); font-size: .82rem; }
 
 .hero__photo { position: relative; justify-self: center; }
-.hero__photo picture, .hero__photo img {
-  width: 100%; max-width: 400px; border-radius: 20px;
-  border: 1px solid var(--line); box-shadow: var(--shadow);
-}
-.hero__photo::after {
-  content: ""; position: absolute; inset: 0; border-radius: 20px;
-  box-shadow: inset 0 0 0 1px rgba(94,234,212,.18); pointer-events: none;
+.hero__photo picture { display: block; }
+.hero__photo img {
+  width: 100%; max-width: 372px; height: auto; border-radius: 20px;
+  border: 1px solid var(--line); box-shadow: var(--shadow), inset 0 0 0 1px rgba(94,234,212,.18);
 }
 .hero__photo-badge {
   position: absolute; bottom: 18px; left: -18px;
