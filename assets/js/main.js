@@ -50,19 +50,4 @@
   checkReveals();
   setTimeout(checkReveals, 120);
 
-  // --- Google Scholar placeholder guard ---
-  // Replace SCHOLAR_URL below once the profile link is known.
-  var SCHOLAR_URL = "";
-  if (SCHOLAR_URL) {
-    document.querySelectorAll("[data-scholar]").forEach(function (a) {
-      a.setAttribute("href", SCHOLAR_URL);
-    });
-  } else {
-    document.querySelectorAll("[data-scholar]").forEach(function (a) {
-      a.addEventListener("click", function (e) {
-        e.preventDefault();
-        window.location.href = "mailto:sivakarthik.parimi@gmail.com";
-      });
-    });
-  }
 })();

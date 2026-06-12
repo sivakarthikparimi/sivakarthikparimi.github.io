@@ -78,14 +78,13 @@ Enable **Enforce HTTPS** in Settings → Pages once DNS resolves.
 
 ## TODO — content to fill in
 
-These are intentionally left as placeholders until you provide them:
-
-1. **Google Scholar URL** — set `SCHOLAR_URL` in `assets/js/main.js`. Until then the
-   "Google Scholar" links fall back to email.
-2. **Press article links** — the five outlets in the Recognition section are listed as
+1. **Press article links** — the outlets in the Recognition section are listed as
    text. Add `<a href="…">` to each in `index.html` once you have the live URLs.
-3. **Patent / publication deep links** — optional, but linking IEEE Xplore DOIs and the
+2. **Patent / publication deep links** — optional, but linking IEEE Xplore DOIs and the
    Indian Patent Office journal entries adds authority signals.
+3. **Citation count** — verify against the live Google Scholar profile
+   (<https://scholar.google.com/citations?user=XLJHBDgAAAAJ>) periodically and update
+   the hero stat, research heading, and meta/JSON-LD blocks together.
 
 ## Editing
 
