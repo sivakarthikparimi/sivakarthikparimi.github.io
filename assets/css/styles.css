@@ -162,8 +162,10 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 86px; padding: 26px 28px;
   border-top: 1px solid var(--line-soft);
 }
-.hero__press span { color: var(--muted-2); font-size: .9rem; letter-spacing: .04em; }
-.hero__press span:not(.hero__press-label) { font-family: var(--serif); font-weight: 520; color: #9aa0ab; }
+.hero__press span, .hero__press a { color: var(--muted-2); font-size: .9rem; letter-spacing: .04em; }
+.hero__press span:not(.hero__press-label), .hero__press a { font-family: var(--serif); font-weight: 520; color: #9aa0ab; }
+.hero__press a { transition: color .2s; border-bottom: 1px solid transparent; }
+.hero__press a:hover { color: var(--gold); border-bottom-color: var(--gold-dim); }
 .hero__press-label {
   font-family: var(--mono); font-size: .72rem !important; letter-spacing: .2em !important;
   text-transform: uppercase; color: var(--muted-2);
@@ -315,6 +317,21 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .honor p { font-size: .92rem; color: var(--muted-2); }
 
+/* ---------- PRESS ---------- */
+.press { display: grid; }
+.press__row {
+  display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--line-soft);
+  transition: padding-left .25s;
+}
+a.press__row:hover { padding-left: 10px; }
+a.press__row:hover .press__t { color: var(--gold); }
+a.press__row:hover .press__arrow { opacity: 1; transform: translate(2px, -2px); }
+.press__t { color: var(--text); font-size: .98rem; font-weight: 450; line-height: 1.55; transition: color .2s; }
+.press__m { font-family: var(--mono); font-size: .78rem; color: var(--gold-soft); letter-spacing: .04em; white-space: nowrap; }
+.press__arrow { display: inline-block; opacity: .35; transition: opacity .2s, transform .2s; margin-left: 4px; }
+.press__row--static .press__t { color: var(--body); }
+
 /* ---------- CONTACT ---------- */
 .section--contact { padding-bottom: 130px; }
 .contact__title {
@@ -372,6 +389,8 @@ img { max-width: 100%; height: auto; display: block; }
   .feature__facts { flex-direction: column; gap: 22px; }
   .pubs li { grid-template-columns: 1fr; gap: 4px; }
   .pubs__m { white-space: normal; }
+  .press__row { grid-template-columns: 1fr; gap: 4px; }
+  .press__m { white-space: normal; }
   .section { padding: 80px 0 20px; }
   .section--rule .container { padding-top: 64px; }
   .footer__inner { flex-direction: column; gap: 6px; }
