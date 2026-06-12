@@ -35,8 +35,8 @@ html[data-theme="light"] {
   --body:      #3d424b;
   --muted:     #6b7280;
   --muted-2:   #5f6671;
-  --gold:      #9a7434;
-  --gold-soft: #84642e;
+  --gold:      #8a6322;
+  --gold-soft: #7d5a1f;
   --gold-dim:  rgba(154, 116, 52, .22);
   --shadow-photo: 0 24px 60px -28px rgba(60, 45, 15, .30);
   --shadow-book:  0 18px 44px -20px rgba(60, 45, 15, .28);
@@ -44,7 +44,7 @@ html[data-theme="light"] {
 }
 html[data-theme="light"] .btn--solid { background: #b8924a; color: #14100a; }
 html[data-theme="light"] .hero__caption span,
-html[data-theme="light"] .kicker { color: #8a6a2e; }
+html[data-theme="light"] .kicker { color: #7d5a1f; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 92px; }
